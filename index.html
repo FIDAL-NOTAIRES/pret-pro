@@ -572,9 +572,9 @@ $('typePret').addEventListener('change', ()=>{
   compute();
 });
 
-// Émolument proportionnel de sûreté HT (barème A444 n°137 tableau 5)
+// Émolument proportionnel de sûreté HT (barème A444-143, n°137 tableau 5 — arrêté du 28 février 2020, vérifié Légifrance 18/07/2026)
 function emolSurete(base){
-  const tr=[[6500,0.01333],[17000,0.00550],[60000,0.00366],[Infinity,0.00275]];
+  const tr=[[6500,0.0129],[17000,0.00532],[60000,0.00355],[Infinity,0.00266]];
   let prev=0,e=0;
   for(const [pl,t] of tr){ if(base>prev){ e+=(Math.min(base,pl)-prev)*t; prev=pl; } else break; }
   return e;
